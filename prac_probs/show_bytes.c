@@ -14,7 +14,7 @@ void test_show_bytes(int val);
 
 int main(void)
 {
-    short sx = -12345;
+    test_show_bytes(0x01234567);
 
     return 0;
 }
@@ -54,6 +54,11 @@ void show_ptr(void *x)
     show_bytes((byte_ptr) &x, sizeof(void *));
 }
 
+void show_int64t(__int64_t x)
+{
+    show_bytes((byte_ptr) &x, sizeof(__int64_t));
+}
+
 void test_show_bytes(int val)
 {
     int i_val       = val;
@@ -67,6 +72,7 @@ void test_show_bytes(int val)
     show_int(i_val);
     show_long(l_val);
     show_float(f_val);
+    show_int64t(i_val);
     show_ptr(p_ival);
     show_ptr(p_fval);
 }
